@@ -1,0 +1,22 @@
+<div class="container-fluid container-full">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div *ngFor="let image of images; let i = index" [attr.data-index]="i" class="w-100 h-100 carousel-item {{ i==0? 'active':''}}">
+        <img class="full-img" src="../../assets/img/{{image}}" alt="First slide">
+        <div class="text-block">
+          <h4>{{staticHeadings[i]}}</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet ipsum et dolor cursus tempus. Aenean porta odio a aliquam elementum. In id nibh finibus arcu rhoncus ultricies. Suspendisse eu neque pulvinar, efficitur arcu quis, tincidunt metus. Duis porttitor tincidunt erat vel lacinia. Morbi pharetra ultrices leo nec finibus. Vivamus arcu odio, molestie eget felis a, commodo ultrices erat. Donec nec condimentum dui.</p>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <button class="mybtn-block btn btn-primary"> Explore more News</button>
+  </div>
+</div>
