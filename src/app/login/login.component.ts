@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.userService
       .login(username, password)
       .then((user) => {
-        this.userService.changeUser(user);
+        this.userService.updateUser(user);
         this.router.navigate(['profile']);
       });
   }

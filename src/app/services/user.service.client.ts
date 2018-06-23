@@ -8,13 +8,23 @@ export class UserServiceClient {
 
   URL = JAVA_SERVER_URL;
 
-  private loggedInUserSource = new BehaviorSubject<User>(null);
+  testUser: User = {
+    username: 'amit',
+    password: 'pass',
+    firstName: 'Amit',
+    lastName: 'Raul',
+    email: null,
+    phone: null,
+    dob: null,
+    role: null,
+  };
+  private loggedInUserSource = new BehaviorSubject<User>(this.testUser);
   currentUser = this.loggedInUserSource.asObservable();
 
 
-
-  changeUser(user: User) {
+  updateUser(user: User) {
     this.loggedInUserSource.next(user);
+    // TODO: code to update data in the database
   }
 
   profile() {
@@ -23,7 +33,7 @@ export class UserServiceClient {
         credentials: 'same-origin', // include, same-origin, *omit
       })
       .then(response => response.json());
-      // .then(user => console.log(user));
+    // .then(user => console.log(user));
   }
 
   // loadUser() {
@@ -50,12 +60,4 @@ export class UserServiceClient {
       })
       .then(response => response.json());
   }
-  // logout() {
-  //   return fetch(this.URL + '/api/logout',
-  //     {
-  //       method: 'post',
-  //       credentials: 'include', // include, same-origin, *omit
-  //     })
-  //     .then();
-  // }
 }
