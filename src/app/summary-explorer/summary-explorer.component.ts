@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SummaryExplorerComponent implements OnInit {
 
   constructor() { }
-
+  summaries: [
+    'summary 1',
+    'summary 2'
+    ];
   ngOnInit() {
   }
 

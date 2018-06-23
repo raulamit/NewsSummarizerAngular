@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import {UserServiceClient} from './services/user.service.client';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewsCardComponent } from './news-card/news-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
     SummaryExplorerComponent,
     AboutComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewsCardComponent
   ],
   imports: [
     BrowserModule,
