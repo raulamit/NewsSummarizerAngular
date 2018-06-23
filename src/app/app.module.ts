@@ -13,6 +13,7 @@ import {UserServiceClient} from './services/user.service.client';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NewsCardComponent } from './news-card/news-card.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewsCardComponent } from './news-card/news-card.component';
     AboutComponent,
     LoginComponent,
     ProfileComponent,
-    NewsCardComponent
+    NewsCardComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
