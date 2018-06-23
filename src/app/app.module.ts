@@ -8,6 +8,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SummaryExplorerComponent } from './summary-explorer/summary-explorer.component';
 import {routing} from './app.routing';
+import { AboutComponent } from './about/about.component';
+import {UserServiceClient} from './services/user.service.client';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,19 @@ import {routing} from './app.routing';
     NewsContentContainerComponent,
     NavBarComponent,
     HomePageComponent,
-    SummaryExplorerComponent
+    SummaryExplorerComponent,
+    AboutComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     routing
   ],
-  providers: [GaurdianNewsServiceClient],
+  providers: [
+    GaurdianNewsServiceClient,
+    UserServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
