@@ -102,7 +102,16 @@
 .post .post-footer .comments-list .comment > .comments-list {
   margin-left: 50px;
 }
-
+.a {
+  color: #007bff!important;
+}
+.a:hover {
+ color: #0056b3!important;
+}
+.a:active {
+  outline: 0!important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25)!important;
+}
 .checked {
   color: orange;
 }

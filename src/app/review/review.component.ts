@@ -16,4 +16,10 @@ export class ReviewComponent implements OnInit {
   getNumber(num) {
     return new Array(num);
   }
+  thumbsUp() {
+    return;
+  }
+  thumbsDown() {
+    return;
+  }
 }

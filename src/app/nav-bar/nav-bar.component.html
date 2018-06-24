@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="home">NewsShorts</a>
-
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
 
     <ul class="nav navbar-nav mr-auto">
@@ -14,11 +17,12 @@
           <a class="dropdown-item" href="#">Politics</a>
           <a class="dropdown-item" href="#">Tech</a>
           <a class="dropdown-item" href="#">International</a>
-          <div class="dropdown-divider"> </div>
+          <div class="dropdown-divider"></div>
           <a href="#">More...</a>
         </div>
       </li>
     </ul>
+
 
     <label *ngIf="user.firstName"
            class="form-check-label"
@@ -30,7 +34,8 @@
       <li><p class="navbar-text">Already have an account?</p></li>
       <li *ngIf="!user.firstName"
           class="dropdown">
-        <a class="nav-link dropdown-toggle mr-sm-2" aria-haspopup="true" aria-expanded="false" href="#" id="navbarDropdown" role="button"
+        <a class="nav-link dropdown-toggle mr-sm-2" aria-haspopup="true" aria-expanded="false" href="#"
+           id="navbarDropdown" role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <b>Login</b> <span class="caret"></span>
         </a>
