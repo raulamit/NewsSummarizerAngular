@@ -30,7 +30,7 @@ export class UserServiceClient {
   profile() {
     return fetch(this.URL + '/api/profile',
       {
-        credentials: 'same-origin', // include, same-origin, *omit
+        credentials: 'include', // include, same-origin, *omit
       })
       .then(response => response.json());
     // .then(user => console.log(user));
@@ -53,11 +53,20 @@ export class UserServiceClient {
       {
         body: JSON.stringify(user),
         method: 'post',
-        credentials: 'omit', // include, same-origin, *omit
+        credentials: 'include', // include, same-origin, *omit
         headers: {
           'content-type': 'application/json'
         }
       })
       .then(response => response.json());
+  }
+
+  logout() {
+    return fetch(this.URL + '/api/logout',
+      {
+        method: 'post',
+        credentials: 'include', // include, same-origin, *omit
+      })
+      .then();
   }
 }

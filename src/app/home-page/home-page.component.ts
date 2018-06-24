@@ -62,7 +62,7 @@ export class HomePageComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(user => console.log(user));
+    this.userService.currentUser.subscribe(user => this.user = user);
     // console.log(this.user);
   }
 

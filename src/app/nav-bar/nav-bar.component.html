@@ -8,28 +8,24 @@
         <a class="nav-link dropdown-toggle mr-sm-2" href="#"  role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <b>Categories</b> <span class="caret"></span>
-        </a>        <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Business</a></li>
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">Tech</a></li>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li class="dropdown-item"><a href="#"><b >Business</b></a></li>
+          <li class="dropdown-item"><a href="#"><b>Politics</b></a></li>
+          <li class="dropdown-item"><a href="#"><b>Tech</b></a></li>
           <li class="divider"></li>
-          <li><a href="#">International</a></li>
+          <li class="dropdown-item"><a href="#"><b>International</b></a></li>
           <li class="divider"></li>
-          <li><a href="#"></a>More..</li>
+          <li class="dropdown-item"><a href="#"></a><b>More..</b></li>
         </ul>
       </li>
     </ul>
 
-    <label *ngIf="user.firstName"
-           class="form-check-label"
-           id="username">
-      {{user.firstName}}
-    </label>
-
     <ul class="nav navbar-nav navbar-right">
-      <li><p class="navbar-text">Already have an account?</p></li>
-      <li *ngIf="!user.firstName"
-          class="dropdown">
+      <li><p *ngIf="!user.firstName"
+             class="navbar-text">Already have an account?</p></li>
+      <li  class="dropdown"
+           *ngIf="!user.firstName">
         <a class="nav-link dropdown-toggle mr-sm-2" href="#" id="navbarDropdown" role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <b>Login</b> <span class="caret"></span>
@@ -47,9 +43,21 @@
           </li>
         </ul>
       </li>
-      <li *ngIf="user.firstName" class="dropdown">
-        <label>Logout</label>
-
+      <li *ngIf="user.firstName"
+          class="dropdown">
+        <a class="nav-link dropdown-toggle mr-sm-2" href="#"
+           role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <b> {{user.firstName}} </b> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li class="dropdown-item">
+            <a href="/profile"><b  role="button"> Profile </b></a>
+          </li>
+          <li class="dropdown-item">
+            <b role="button" (click)="logout()"> Logout </b>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
