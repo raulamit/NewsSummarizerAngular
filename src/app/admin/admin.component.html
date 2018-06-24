@@ -1,0 +1,82 @@
+<div class="container-">
+
+  <h1 id="title">User Admin</h1>
+  <table class="table container-fluid">
+    <thead>
+
+    <tr>
+      <th class="align-content-center">Username</th>
+      <th>Password</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Role</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>    </th>
+      <th>
+        <span class="float-right" style="white-space: nowrap">
+        </span>
+      </th>
+    </tr>
+
+    <tr class="wbdv-form">
+      <td><input id="usernameFld" class="form-control"
+                 placeholder="Username" value={{selectedUser.username}}
+                 [(ngModel)]="selectedUser.username"/> </td>
+      <td><input id="passwordFld" class="form-control"
+                 type="Password" value={{selectedUser.password}}
+                 [(ngModel)]="selectedUser.password"/></td>
+      <td><input id="firstNameFld" class="form-control"
+                 placeholder="First Name" value={{selectedUser.firstName}}
+                 [(ngModel)]="selectedUser.firstName"/></td>
+      <td><input id="lastNameFld" class="form-control"
+                 placeholder="Last Name" value={{selectedUser.lastName}}
+                 [(ngModel)]="selectedUser.lastName"/></td>
+
+      <td>
+        <select id="roleFld" class="form-control"
+                [(ngModel)]="selectedUser.role">
+        <option value="EDITOR">EDITOR</option>
+        <option value="READER">READER</option>
+        <option value="ADVERTISER">ADVERTISER</option>
+        </select>
+      </td>
+      <td><input id="phoneFld" class="form-control"
+                 [(ngModel)]="selectedUser.phone"
+                 placeholder="Phone" value={{selectedUser.phone}}/></td>
+      <td><input id="emailFld" class="form-control"
+                 [(ngModel)]="selectedUser.email"
+                 placeholder="joe@example.com" value={{selectedUser.email}}/></td>
+      <td>
+        <span class="float-right" style="white-space: nowrap">
+          <i class="fa-2x fa fa-search wbdv-search"></i>
+          <i class="fa-2x fa fa-plus wbdv-create" (click)="createUser(selectedUser)"></i>
+          <i class="fa-2x fa fa-check wbdv-update" (click)="updateUser(selectedUser)"></i>
+        </span>
+      </td>
+
+
+    </tr>
+    </thead>
+    <tbody class="wbdv-tbody">
+    <tr class="wbdv-template wbdv-user wbdv-hidden"
+        *ngFor="let user of users">
+      <td class="wbdv-username">{{user.username}}</td>
+      <td class="wbdv-password"><i> {{user.password}}</i></td>
+      <td class="wbdv-first-name">{{user.firstName}}</td>
+      <td class="wbdv-last-name">{{user.lastName}}</td>
+      <td class="wbdv-role">{{user.role}}</td>
+      <td class="wbdv-phone">{{user.phone}}</td>
+      <td class="wbdv-email"><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+      <td class="wbdv-actions">
+        <span class="float-right">
+          <i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove" (click)="delete(user)"></i>
+          <i id="wbdv-edit" class="fa-2x fa fa-pencil wbdv-edit" (click)="editUser(user)"></i>
+        </span>
+      </td>
+    </tr>
+    </tbody>
+
+    <tfoot></tfoot>
+  </table>
+</div>

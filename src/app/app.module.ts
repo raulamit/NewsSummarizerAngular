@@ -17,6 +17,7 @@ import { ReviewComponent } from './review/review.component';
 import {FormsModule} from '@angular/forms';
 import {SummaryServiceClient} from './services/summary.service.client';
 import { RegisterComponent } from './register/register.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RegisterComponent } from './register/register.component';
     ProfileComponent,
     NewsCardComponent,
     ReviewComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

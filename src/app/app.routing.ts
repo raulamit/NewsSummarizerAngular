@@ -4,6 +4,7 @@ import {SummaryExplorerComponent} from './summary-explorer/summary-explorer.comp
 import {AboutComponent} from './about/about.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AdminComponent} from './admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'explore', component: SummaryExplorerComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'admin', component: AdminComponent},
   {path: '**', component: HomePageComponent}
 
 ];
