@@ -13,6 +13,12 @@ export class NavBarComponent implements OnInit {
               private userService: UserServiceClient) { }
   user;
 
+  logout() {
+    this.userService.logout()
+      .then(() => (
+        this.userService.updateUser(this.userService.testUser)));
+  }
+
   ngOnInit() {
     this.userService.currentUser.subscribe(user => this.user = user);
   }

@@ -24,12 +24,6 @@
     </ul>
 
 
-    <label *ngIf="user.firstName"
-           class="form-check-label"
-           id="username">
-      {{user.firstName}}
-    </label>
-
     <ul class="nav navbar-nav navbar-right">
       <li><p class="navbar-text">Already have an account?</p></li>
       <li *ngIf="!user.firstName"
@@ -52,9 +46,21 @@
           </li>
         </ul>
       </li>
-      <li *ngIf="user.firstName" class="dropdown">
-        <label>Logout</label>
-
+      <li *ngIf="user.firstName"
+          class="dropdown">
+        <a class="nav-link dropdown-toggle mr-sm-2" href="#"
+           role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <b> {{user.firstName}} </b> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li class="dropdown-item">
+            <a href="/profile"><b role="button"> Profile </b></a>
+          </li>
+          <li class="dropdown-item">
+            <b role="button" (click)="logout()"> Logout </b>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
