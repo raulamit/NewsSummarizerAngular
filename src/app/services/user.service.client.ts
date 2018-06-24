@@ -2,6 +2,7 @@ import {JAVA_SERVER_URL} from '../constants';
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {User} from '../models/user.model.client';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Injectable()
 export class UserServiceClient {
@@ -21,8 +22,9 @@ export class UserServiceClient {
   private loggedInUserSource = new BehaviorSubject<User>(this.testUser);
   currentUser = this.loggedInUserSource.asObservable();
 
+  constructor() { }
 
-  updateUser(user: User) {
+  changeUser(user: User) {
     this.loggedInUserSource.next(user);
     // TODO: code to update data in the database
   }
@@ -32,8 +34,15 @@ export class UserServiceClient {
       {
         credentials: 'include', // include, same-origin, *omit
       })
-      .then(response => response.json());
-    // .then(user => console.log(user));
+      .then(response => response.json())
+      .then(res => {
+        if (res) {
+          console.log(res);
+          return res;
+        } else {
+          return this.testUser;
+        }
+      });
   }
 
   // loadUser() {
@@ -43,6 +52,19 @@ export class UserServiceClient {
   //     })
   //     .then(response => response.json());
   // }
+
+  updateUser(user) {
+    return fetch(this.URL + '/api/user/' + user.id,
+      {
+        body: JSON.stringify(user),
+        method: 'put',
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => response.json());
+  }
 
   login(username: String, password: String) {
     const user = {
@@ -73,7 +95,7 @@ export class UserServiceClient {
       headers: {
         'content-type': 'application/json'
       }
-    });
+    }).then(response => response.json());
   }
 
   logout() {
@@ -82,6 +104,6 @@ export class UserServiceClient {
         method: 'post',
         credentials: 'include', // include, same-origin, *omit
       })
-      .then();
+      .then(() => this.changeUser(this.testUser));
   }
 }

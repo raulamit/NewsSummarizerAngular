@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="home">NewsShorts</a>
+  <a class="navbar-brand" routerLink="/home">NewsShorts</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
           aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li *ngIf="!user.firstName"
+      <li *ngIf="!user"
           class="dropdown">
         <a class="nav-link dropdown-toggle mr-sm-2" aria-haspopup="true" aria-expanded="false" href="#"
            role="button"
@@ -46,7 +46,7 @@
 
       </li>
 
-      <li *ngIf="!user.firstName"
+      <li *ngIf="!user"
           class="dropdown">
         <a class="nav-link dropdown-toggle mr-sm-2" aria-haspopup="true" aria-expanded="false" href="#"
            id="navbarDropdown" role="button"
@@ -67,7 +67,7 @@
         </ul>
       </li>
 
-      <li *ngIf="user.firstName"
+      <li *ngIf="user"
           class="dropdown">
         <a class="nav-link dropdown-toggle mr-sm-2" href="#"
            role="button" data-toggle="dropdown"
@@ -76,7 +76,7 @@
         </a>
         <ul class="dropdown-menu" role="menu">
           <li class="dropdown-item">
-            <a href="/profile"><b role="button"> Profile </b></a>
+            <a routerLink="/profile"><b role="button"> Profile </b></a>
           </li>
           <li class="dropdown-item">
             <b role="button" (click)="logout()"> Logout </b>

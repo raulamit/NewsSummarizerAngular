@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   register(username, password1, password2) {
     if (password1 === password2) {
       this.userService.register(username, password1)
+        .then(user =>  this.userService.changeUser(user))
         .then(() => this.router.navigate(['profile']));
     } else {
       alert('Passwords don\'t match');

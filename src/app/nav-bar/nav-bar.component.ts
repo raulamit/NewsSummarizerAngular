@@ -10,17 +10,26 @@ import {Router} from '@angular/router';
 export class NavBarComponent implements OnInit {
 
   constructor(private router: Router,
-              private userService: UserServiceClient) { }
+              private userService: UserServiceClient) {
+  }
   user;
 
   logout() {
     this.userService.logout()
       .then(() => (
-        this.userService.updateUser(this.userService.testUser)));
+        this.loadUser()
+      ));
+  }
+  loadUser() {
+    this.userService.profile()
+      .catch(err => console.log("logout"))
+      .then(user => this.user = user)
+      .then(user => this.userService.changeUser(this.user));
   }
 
   ngOnInit() {
     this.userService.currentUser.subscribe(user => this.user = user);
+    this.loadUser();
   }
 
 }
