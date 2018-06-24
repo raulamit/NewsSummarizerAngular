@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { ReviewComponent } from './review/review.component';
 import {FormsModule} from '@angular/forms';
+import {SummaryServiceClient} from './services/summary.service.client';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {FormsModule} from '@angular/forms';
   ],
   providers: [
     GaurdianNewsServiceClient,
-    UserServiceClient
+    UserServiceClient,
+    SummaryServiceClient
   ],
   bootstrap: [AppComponent]
 })
