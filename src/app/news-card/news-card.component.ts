@@ -21,11 +21,13 @@ export class NewsCardComponent implements OnInit {
     to pass legislation that keeps families together.`,
     reviews: [] // todo: has review text, ratings, user, profile pic, time
   };
+  @Input() summ;
   ngOnInit() {
     // todo: remove after summary object loaded from parent
     for (let i = 0; i < 20; i++) {
         this.summary.reviews.push(`review${i + 1}`);
     }
+    console.log(this.summ);
   }
 
 }
