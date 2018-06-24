@@ -41,3 +41,8 @@
   color: white;
   text-align: center;
 }
+
+.rowMargin {
+  margin-right: 0;
+  margin-left: 0;
+}
