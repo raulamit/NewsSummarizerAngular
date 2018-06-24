@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {GaurdianNewsServiceClient} from '../services/GaurdianNewsServiceClient';
-import {Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import {UserServiceClient} from '../services/user.service.client';
+import {User} from '../models/user.model.client';
+import {EDITOR} from '../constants';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
   'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
@@ -19,15 +22,26 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
 })
 export class SummaryEditorComponent implements OnInit {
 
-  constructor(private service: GaurdianNewsServiceClient) {
+  constructor(private service: GaurdianNewsServiceClient,
+              private userService: UserServiceClient,
+              private router: Router,
+              private snackBar: MatSnackBar) {
+    this.userService.currentUser.subscribe(user => this.user = user);
   }
+  user: User;
   model: '';
   newsContentList = [];
-  contentUrl;
   searchQuery = '';
   page = '1';
 
   ngOnInit() {
+    if (!this.user || !this.user.role || this.user.role !== EDITOR) {
+      console.log(this.user);
+      this.router.navigate(['home']);
+      this.snackBar.open('Login as editor to summarize',
+        'Will Do!',
+        {duration: 2000});
+    }
     this.service.findNewsContent(1, this.searchQuery)
       .then(res => this.newsContentList = res.response.results);
   }

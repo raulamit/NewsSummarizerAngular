@@ -18,7 +18,7 @@ export class UserServiceClient {
     phone: null,
     role: null,
   };
-  private loggedInUserSource = new BehaviorSubject<User>(this.testUser);
+  private loggedInUserSource = new BehaviorSubject<User>(null);
   currentUser = this.loggedInUserSource.asObservable();
 
   constructor() { }
