@@ -24,23 +24,32 @@ export class SummaryEditorComponent implements OnInit {
   model: '';
   newsContentList = [];
   contentUrl;
+  searchQuery = '';
+  page = '1';
 
   ngOnInit() {
-    this.service.findNewsContent(1)
+    this.service.findNewsContent(1, this.searchQuery)
       .then(res => this.newsContentList = res.response.results);
   }
 
-  setContent(contentUrl) {
-    this.contentUrl = contentUrl;
+
+  // search = (text$: Observable<string>) =>
+  //   text$.pipe(
+  //     debounceTime(400),
+  //     distinctUntilChanged(),
+  //     map(term => term.length < 2 ? []
+  //       : this.getTagNames(term)
+  //   ))
+
+  searchArticles() {
+    this.service
+      .findNewsContent(this.page, this.searchQuery)
+      .then(res => this.newsContentList = res.response.results);
   }
 
-  search = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 2 ? []
-        : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-    );
-
-
+  private getTagNames(term: string) {
+    return this.service
+      .findNewsTags(term)
+      .then(res => res.results.map(result => result.id));
+  }
 }
