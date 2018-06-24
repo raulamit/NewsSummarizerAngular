@@ -16,6 +16,7 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { ReviewComponent } from './review/review.component';
 import {FormsModule} from '@angular/forms';
 import {SummaryServiceClient} from './services/summary.service.client';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {SummaryServiceClient} from './services/summary.service.client';
     LoginComponent,
     ProfileComponent,
     NewsCardComponent,
-    ReviewComponent
+    ReviewComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

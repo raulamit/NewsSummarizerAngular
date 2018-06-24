@@ -61,6 +61,21 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  register(username, password) {
+    const user = {
+      username: username,
+      password: password
+    };
+    return fetch(this.URL + '/api/register', {
+      body: JSON.stringify(user),
+      credentials: 'include', // include, same-origin, *omit
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
+
   logout() {
     return fetch(this.URL + '/api/logout',
       {
