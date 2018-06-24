@@ -20,6 +20,9 @@ import {SummaryServiceClient} from './services/summary.service.client';
 import { SummaryEditorComponent } from './summary-editor/summary-editor.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material';
+import { RegisterComponent } from './register/register.component';
+import { AdminComponent } from './admin/admin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import {MatSnackBarModule} from '@angular/material';
     ProfileComponent,
     NewsCardComponent,
     ReviewComponent,
-    SummaryEditorComponent
+    SummaryEditorComponent,
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

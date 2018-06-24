@@ -9,20 +9,21 @@ export class UserServiceClient {
   URL = JAVA_SERVER_URL;
 
   testUser: User = {
+    id: null,
     username: 'amit',
     password: 'pass',
     firstName: null,
     lastName: 'Raul',
     email: null,
     phone: null,
-    dob: null,
     role: null,
   };
   private loggedInUserSource = new BehaviorSubject<User>(this.testUser);
   currentUser = this.loggedInUserSource.asObservable();
 
+  constructor() { }
 
-  updateUser(user: User) {
+  changeUser(user: User) {
     this.loggedInUserSource.next(user);
     // TODO: code to update data in the database
   }
@@ -32,17 +33,36 @@ export class UserServiceClient {
       {
         credentials: 'include', // include, same-origin, *omit
       })
-      .then(response => response.json());
-    // .then(user => console.log(user));
+      .then(response => response.json())
+      .then(res => {
+        if (res) {
+          return res;
+        } else {
+          return this.testUser;
+        }
+      });
   }
 
-  // loadUser() {
-  //   return fetch(this.URL + '/api/load',
-  //     {
-  //       credentials: 'include', // include, same-origin, *omit
-  //     })
-  //     .then(response => response.json());
-  // }
+  findAllUsers() {
+    return fetch(this.URL + '/api/user',
+      {
+        credentials: 'include', // include, same-origin, *omit
+      })
+      .then(response => response.json());
+  }
+
+  updateUser(user) {
+    return fetch(this.URL + '/api/user/' + user.id,
+      {
+        body: JSON.stringify(user),
+        method: 'put',
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => response.json());
+  }
 
   login(username: String, password: String) {
     const user = {
@@ -61,12 +81,45 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  register(username, password) {
+    const user = {
+      username: username,
+      password: password
+    };
+    return fetch(this.URL + '/api/register', {
+      body: JSON.stringify(user),
+      credentials: 'include', // include, same-origin, *omit
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  createUser(user: User) {
+    return fetch(this.URL + '/api/user', {
+      body: JSON.stringify(user),
+      credentials: 'include', // include, same-origin, *omit
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+  deleteUser(userId) {
+    return fetch(this.URL + '/api/user/' + userId,
+      {
+        method: 'delete',
+        credentials: 'include', // include, same-origin, *omit
+      });
+  }
+
   logout() {
     return fetch(this.URL + '/api/logout',
       {
         method: 'post',
         credentials: 'include', // include, same-origin, *omit
       })
-      .then();
+      .then(() => this.changeUser(this.testUser));
   }
 }

@@ -1,0 +1,20 @@
+<form class="form">
+  <div class="form-group">
+    <input [(ngModel)]="username" name="usernameFld" type="text"
+           class="form-control" placeholder="Username" required="">
+  </div>
+  <div class="form-group">
+    <input type="password" [(ngModel)]="password1" name="passwordFld"
+           class="form-control" placeholder="Password" required="">
+  </div>
+  <div class="form-group">
+    <input type="password" [(ngModel)]="password2" name="verifyPasswordFld"
+           class="form-control" placeholder="Verify Password" required="">
+  </div>
+  <div class="form-group">
+    <button type="submit" (click)="register(username, password1, password2)" class="btn btn-primary btn-block">
+      Register
+    </button>
+  </div>
+
+</form>
