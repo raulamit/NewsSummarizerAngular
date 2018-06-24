@@ -12,18 +12,14 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
               private userService: UserServiceClient) { }
 
-  username;
+  username = '';
   password;
   user;
 
   login(username, password) {
-    console.log([username, password]);
     this.userService
       .login(username, password)
-      .then((user) => {
-        this.userService.updateUser(user);
-        this.router.navigate(['profile']);
-      });
+      .then((user) => this.userService.updateUser(user));
   }
 
   ngOnInit() {

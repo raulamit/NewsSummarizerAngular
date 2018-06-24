@@ -11,7 +11,7 @@ export class UserServiceClient {
   testUser: User = {
     username: 'amit',
     password: 'pass',
-    firstName: 'Amit',
+    firstName: null,
     lastName: 'Raul',
     email: null,
     phone: null,

@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import {UserServiceClient} from './services/user.service.client';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing
   ],
   providers: [
