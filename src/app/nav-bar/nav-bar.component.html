@@ -69,12 +69,12 @@
       </li>
 
       <li *ngIf="user">
-        <a class="nav-link mr-sm-2" href="summarize"
+        <a class="nav-link mr-sm-2" routerLink="/summarize"
            role="button"
            aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Editor'">
           <b> News Editor</b>
         </a>
-        <a class="nav-link mr-sm-2" href="advertiser"
+        <a class="nav-link mr-sm-2" routerLink="/advertiser"
            role="button"
            aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Advertiser'">
           <b> Ad Editor</b> <span class="caret"></span>
