@@ -51,6 +51,14 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  findUserByUsername(username) {
+    return fetch(this.URL + '/api/user?username=' + username,
+      {
+        credentials: 'include', // include, same-origin, *omit
+      })
+      .then(response => response.json());
+  }
+
   updateUser(user) {
     return fetch(this.URL + '/api/user/' + user.id,
       {
@@ -81,10 +89,11 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
-  register(username, password) {
+  register(username, password, role) {
     const user = {
       username: username,
-      password: password
+      password: password,
+      role: role
     };
     return fetch(this.URL + '/api/register', {
       body: JSON.stringify(user),
