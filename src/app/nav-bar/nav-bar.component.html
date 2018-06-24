@@ -3,20 +3,20 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
 
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav mr-auto">
       <li class="dropdown">
-        <a class="nav-link dropdown-toggle mr-sm-2" href="#"  role="button"
+        <a class="nav-link dropdown-toggle mr-sm-2" href="#" role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <b>Categories</b> <span class="caret"></span>
-        </a>        <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Business</a></li>
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">Tech</a></li>
-          <li class="divider"></li>
-          <li><a href="#">International</a></li>
-          <li class="divider"></li>
-          <li><a href="#"></a>More..</li>
-        </ul>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Business</a>
+          <a class="dropdown-item" href="#">Politics</a>
+          <a class="dropdown-item" href="#">Tech</a>
+          <a class="dropdown-item" href="#">International</a>
+          <div class="dropdown-divider"> </div>
+          <a href="#">More...</a>
+        </div>
       </li>
     </ul>
 
@@ -30,7 +30,7 @@
       <li><p class="navbar-text">Already have an account?</p></li>
       <li *ngIf="!user.firstName"
           class="dropdown">
-        <a class="nav-link dropdown-toggle mr-sm-2" href="#" id="navbarDropdown" role="button"
+        <a class="nav-link dropdown-toggle mr-sm-2" aria-haspopup="true" aria-expanded="false" href="#" id="navbarDropdown" role="button"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <b>Login</b> <span class="caret"></span>
         </a>
@@ -40,8 +40,8 @@
               <div class="col-md-12">
                 <app-login></app-login>
                 <div class="bottom text-center">
-                New here ? <a href="#"><b>Join Us</b></a>
-              </div>
+                  New here ? <a href="#"><b>Join Us</b></a>
+                </div>
               </div>
             </div>
           </li>
