@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AdminComponent } from './admin/admin.component';
     ReviewComponent,
     SummaryEditorComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    AdvertiseEditorComponent
   ],
   imports: [
     BrowserModule,

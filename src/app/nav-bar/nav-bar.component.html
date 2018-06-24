@@ -68,9 +68,22 @@
         </ul>
       </li>
 
+      <li *ngIf="user">
+        <a class="nav-link mr-sm-2" href="summarize"
+           role="button"
+           aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Editor'">
+          <b> News Editor</b>
+        </a>
+        <a class="nav-link mr-sm-2" href="advertiser"
+           role="button"
+           aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Advertiser'">
+          <b> Ad Editor</b> <span class="caret"></span>
+        </a>
+      </li>
+
       <li *ngIf="user"
           class="dropdown">
-        <div >
+        <div>
           <a class="nav-link dropdown-toggle mr-sm-2" href="#"
              role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">

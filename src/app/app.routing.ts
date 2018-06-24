@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SummaryEditorComponent} from './summary-editor/summary-editor.component';
 import {AdminComponent} from './admin/admin.component';
+import {AdvertiseEditorComponent} from './advertise-editor/advertise-editor.component';
 
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'explore', component: SummaryExplorerComponent},
   {path: 'about', component: AboutComponent},
   {path: 'summarize', component: SummaryEditorComponent},
+  {path: 'advertiser', component: AdvertiseEditorComponent},
   {path: 'admin', component: AdminComponent},
   {path: '**', component: HomePageComponent}
 

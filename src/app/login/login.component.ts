@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       .login(username, password)
       .then((user) =>  this.userService.changeUser(user))
       .then(() => {
-        if (this.user.username === 'admin') {
+        if (this.user.role === 'Administrator') {
           this.router.navigate(['admin']);
         } else {
           this.router.navigate(['home']);
