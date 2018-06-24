@@ -69,19 +69,23 @@
 
       <li *ngIf="user"
           class="dropdown">
-        <a class="nav-link dropdown-toggle mr-sm-2" href="#"
-           role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          <b> {{user.firstName}} </b> <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li class="dropdown-item">
-            <a routerLink="/profile"><b role="button"> Profile </b></a>
-          </li>
-          <li class="dropdown-item">
-            <b role="button" (click)="logout()"> Logout </b>
-          </li>
-        </ul>
+        <div >
+          <a class="nav-link dropdown-toggle mr-sm-2" href="#"
+             role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            <b> {{user.firstName}} </b> <span class="caret"></span>
+          </a>
+          <div class="col-md-12">
+            <ul class="dropdown-menu" role="menu" id="profiledropdown">
+              <li class="dropdown-item">
+                <a routerLink="/profile"><b role="button"> Profile </b></a>
+              </li>
+              <li class="dropdown-item">
+                <b role="button" (click)="logout()"> Logout </b>
+              </li>
+            </ul>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

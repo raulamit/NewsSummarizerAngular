@@ -49,9 +49,10 @@
                  placeholder="joe@example.com" value={{selectedUser.email}}/></td>
       <td>
         <span class="float-right" style="white-space: nowrap">
-          <i class="fa-2x fa fa-search wbdv-search"></i>
-          <i class="fa-2x fa fa-plus wbdv-create" (click)="createUser(selectedUser)"></i>
-          <i class="fa-2x fa fa-check wbdv-update" (click)="updateUser(selectedUser)"></i>
+          <i class="fa-2x fa fa-search wbdv-search" *ngIf="!editMode" (click)="findUserByUsername(selectedUser.username)"></i>
+          <i class="fa-2x fa fa-plus wbdv-create" *ngIf="!editMode" (click)="createUser(selectedUser)"></i>
+          <i class="fa-2x fa fa-check wbdv-update" *ngIf="editMode" (click)="updateUser(selectedUser)"></i>
+          <i class="fa-2x fa fa-times wbdv-update" (click)="resetUser()"></i>
         </span>
       </td>
 
