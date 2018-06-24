@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(user => console.log(user));
+    this.userService.currentUser.subscribe(user => this.user = user);
     // console.log(this.user);
     // this.userService.updateUser(this.user);
   }
