@@ -4,6 +4,7 @@ import {SummaryExplorerComponent} from './summary-explorer/summary-explorer.comp
 import {AboutComponent} from './about/about.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
+import {SummaryEditorComponent} from './summary-editor/summary-editor.component';
 
 
 const appRoutes: Routes = [
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'explore', component: SummaryExplorerComponent},
   {path: 'about', component: AboutComponent},
-  {path: '**', component: HomePageComponent}
+  {path: 'summarize', component: SummaryEditorComponent},
+  {path: '**', component: HomePageComponent},
 
 ];
 export const routing = RouterModule.forRoot(appRoutes);

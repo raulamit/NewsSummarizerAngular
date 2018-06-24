@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NewsContentContainerComponent } from './news-content-container/news-content-container.component';
@@ -16,7 +17,9 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { ReviewComponent } from './review/review.component';
 import {FormsModule} from '@angular/forms';
 import {SummaryServiceClient} from './services/summary.service.client';
-
+import { SummaryEditorComponent } from './summary-editor/summary-editor.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +31,16 @@ import {SummaryServiceClient} from './services/summary.service.client';
     LoginComponent,
     ProfileComponent,
     NewsCardComponent,
-    ReviewComponent
+    ReviewComponent,
+    SummaryEditorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    NgbModule.forRoot()
   ],
   providers: [
     GaurdianNewsServiceClient,
