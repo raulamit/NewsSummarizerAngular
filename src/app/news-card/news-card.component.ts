@@ -14,7 +14,9 @@ export class NewsCardComponent implements OnInit {
   ngOnInit() {
     // todo: remove after summary object loaded from parent
     console.log(this.summary);
-    if (!this.summary.review) this.summary.review = []
+    if (!this.summary.review) {
+      this.summary.review = []
+    }
     for (let i = 0; i < 20; i++) {
         this.summary.reviews.push(`review${i + 1}`);
     }

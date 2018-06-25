@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-advertisement-card',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdvertisementCardComponent implements OnInit {
 
   constructor() { }
-
+  @Input() summary;
   ngOnInit() {
   }
 

@@ -1,18 +1,28 @@
 <div class="row">
-  <div class="carousel-item card col-md-8 active">
+  <div *ngIf="summary.stype==='news'" class="carousel-item card col-md-8 active">
     <img class="card-img-top img-fluid" src={{summary.imgSrc}} alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">{{summary.title}}</h4>
       <p *ngFor="let para of summary.description.split('\n')" class="card-text">{{para}}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href='https://www.theguardian.com/{{summary.sourceId}}' target="_blank" class="card-text">Read at Guadrian</a>
     </div>
   </div>
-  <div class="carousel-item card col-md-4 active">
+  <div *ngIf="summary.stype==='ad'" class="carousel-item card active form-control"><span></span>
+    <video class="form-control" controls>
+      <source src="{{summary.videoLink}}">
+      Your browser does not support the video tag.
+    </video>
+    <div class="card-body">
+      <h4 class="card-title">{{summary.title}}</h4>
+      <p *ngFor="let para of summary.description.split('\n')" class="card-text">{{para}}</p>
+      <a href="{{summary.website}}"><i>{{summary.company}}</i></a>
+    </div>
+  </div>
+  <div *ngIf="summary.stype==='news'" class="carousel-item card col-md-4 active">
     <h1>Comments</h1>
     <div class="card-body">
       <app-review *ngFor="let rev of summary.reviews" review = {{rev}}></app-review>
-      <a href={{summary.webUrl}} target="_blank"class="card-text"><small class="text-muted">Last updated 3 mins ago</small></a>
-
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
 </div>

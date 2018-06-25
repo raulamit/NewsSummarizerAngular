@@ -1,3 +1,13 @@
-<p>
-  advertisement-card works!
-</p>
+<div class="row">
+  <div class="carousel-item card active form-control"><span></span>
+    <video class="form-control" controls>
+      <source src="{{summary.videoLink}}">
+      Your browser does not support the video tag.
+    </video>
+    <div class="card-body">
+      <h4 class="card-title">{{summary.title}}</h4>
+      <p *ngFor="let para of summary.description.split('\n')" class="card-text">{{para}}</p>
+      <a href="{{summary.website}}"><i>{{summary.company}}</i></a>
+    </div>
+  </div>
+</div>
