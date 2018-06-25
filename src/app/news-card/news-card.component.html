@@ -1,9 +1,9 @@
 <div class="row">
   <div class="carousel-item card col-md-8 active">
-    <img class="card-img-top img-fluid" src={{summary.img}} alt="Card image cap">
+    <img class="card-img-top img-fluid" src={{summary.imgSrc}} alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">{{summary.title}}</h4>
-      <p *ngFor="let para of summary.text.split('\n')" class="card-text">{{para}}</p>
+      <p *ngFor="let para of summary.description.split('\n')" class="card-text">{{para}}</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
@@ -11,7 +11,7 @@
     <h1>Comments</h1>
     <div class="card-body">
       <app-review *ngFor="let rev of summary.reviews" review = {{rev}}></app-review>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href={{summary.webUrl}} target="_blank"class="card-text"><small class="text-muted">Last updated 3 mins ago</small></a>
 
     </div>
   </div>
