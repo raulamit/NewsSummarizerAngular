@@ -23,6 +23,8 @@ import {MatSnackBarModule} from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.component';
+import { AdvertisementCardComponent } from './advertisement-card/advertisement-card.component';
+import {AdvertisementServiceClient} from './services/advertisement.service.client';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.co
     SummaryEditorComponent,
     RegisterComponent,
     AdminComponent,
-    AdvertiseEditorComponent
+    AdvertiseEditorComponent,
+    AdvertisementCardComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.co
   providers: [
     GaurdianNewsServiceClient,
     UserServiceClient,
-    SummaryServiceClient
+    SummaryServiceClient,
+    AdvertisementServiceClient
   ],
   bootstrap: [AppComponent]
 })
