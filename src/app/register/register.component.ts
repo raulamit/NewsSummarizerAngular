@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.username = '';
     this.password1 = '';
     this.password2 = '';
-    this.role = 'ROLE';
+    this.role = 'READER';
   }
 
   register(username, password1, password2, role) {
