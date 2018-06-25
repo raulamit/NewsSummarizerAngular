@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       this.userService.register(username, password1, role)
         .then(user =>  {
           if (user.username !== username) {
-            this.snackBar.open('User Already exists',
+            this.snackBar.open('User already exists. ',
               'dismiss',
               {duration: 3000});
             this.reset();
