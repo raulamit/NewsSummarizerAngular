@@ -13,10 +13,11 @@
           <b>Categories</b> <span class="caret"></span>
         </a>
         <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Business</a>
-          <a class="dropdown-item" href="#">Politics</a>
-          <a class="dropdown-item" href="#">Tech</a>
-          <a class="dropdown-item" href="#">International</a>
+          <!--todo: filter news summary by tags-->
+          <a class="dropdown-item" routerLink="">Business</a>
+          <a class="dropdown-item" routerLink="">Politics</a>
+          <a class="dropdown-item" routerLink="">Tech</a>
+          <a class="dropdown-item" routerLink="">International</a>
           <div class="dropdown-divider"></div>
           <a href="#">More...</a>
         </div>
@@ -68,12 +69,12 @@
       </li>
 
       <li *ngIf="user">
-        <a class="nav-link mr-sm-2" href="summarize"
+        <a class="nav-link mr-sm-2" routerLink="/summarize"
            role="button"
            aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Editor'">
           <b> News Editor</b>
         </a>
-        <a class="nav-link mr-sm-2" href="advertiser"
+        <a class="nav-link mr-sm-2" routerLink="/advertiser"
            role="button"
            aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Advertiser'">
           <b> Ad Editor</b> <span class="caret"></span>
