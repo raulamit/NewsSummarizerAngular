@@ -1,22 +1,59 @@
-<p>WOrks</p>
+<div class="container">
+  <div id="editor" class="container-fluid">
+    <div class="col-8 container-fluid">
+      <br/>
+      <div class="form-group row">
+        <label for="titleFld" class="col-sm-2 col-form-label">Ad Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="titleFld" placeholder="Title" [(ngModel)]="advertisement.title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="videoFld" class="col-sm-2 col-form-label">Video Link</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="videoFld" placeholder="Video Link" [(ngModel)]="advertisement.videoLink">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="companyFld" class="col-sm-2 col-form-label">Company Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="companyFld" placeholder="Video Link" [(ngModel)]="advertisement.company">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="websiteFld" class="col-sm-2 col-form-label">Company Website</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="websiteFld" placeholder="Video Link" [(ngModel)]="advertisement.website">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="descriptionFld" class="col-sm-2 col-form-label">Summary of Article</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" rows="3" id="descriptionFld" [(ngModel)]="advertisement.description"></textarea>
+        </div>
+      </div>
+      <button (click) = "saveAd(advertisement)"
+              type="button"
+              class="btn btn-primary btn-block">Save</button>
+    </div>
 
-<!--<div class="container-fluid">-->
-  <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
-    <!--<div class="carousel-inner row w-100 mx-auto">-->
+  </div>
+  <br/>
 
-      <!--<app-news-card *ngIf="currentSummaryIndex >= 0" [summ]="summaries[currentSummaryIndex]"></app-news-card>-->
-      <!--<div *ngIf="currentSummaryIndex<0">-->
-        <!--<h1>Loading your daily news...</h1>-->
-      <!--</div>-->
-      <!--<a *ngIf="currentSummaryIndex>0" (click)="prev()" class="carousel-control-prev" href="#myCarousel" role="button"-->
-         <!--data-slide="prev">-->
-        <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-        <!--<span class="sr-only">Previous</span>-->
-      <!--</a>-->
-      <!--<a class="carousel-control-next" (click)="next()" href="#myCarousel" role="button" data-slide="next">-->
-        <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-        <!--<span class="sr-only">Next</span>-->
-      <!--</a>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+  <div id="preview" class="container col-8 form-control ">
+      <div class="carousel-item card active form-control"><span></span>
+        <video class="form-control" controls>
+          <source src="{{advertisement.videoLink}}">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <h4 class="card-title">{{advertisement.title}}</h4>
+          <p *ngFor="let para of advertisement.description.split('\n')" class="card-text">{{para}}</p>
+          <a href="{{advertisement.website}}"><i>{{advertisement.company}}</i></a>
+
+        </div>
+    </div>
+
+
+  </div>
+</div>
