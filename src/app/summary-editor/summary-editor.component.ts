@@ -41,9 +41,10 @@ export class SummaryEditorComponent implements OnInit {
       this.snackBar.open('Login as editor to summarize',
         'Will Do!',
         {duration: 2000});
+    } else {
+      this.service.findNewsContent(1, this.searchQuery)
+        .then(res => this.newsContentList = res.response.results);
     }
-    this.service.findNewsContent(1, this.searchQuery)
-      .then(res => this.newsContentList = res.response.results);
   }
 
 

@@ -24,9 +24,12 @@ export class NavBarComponent implements OnInit {
   }
   loadUser() {
     this.userService.profile()
-      .catch(err => console.log("logout"))
+      .catch(err => console.log('logout'))
       .then(user => this.user = user)
-      .then(() => this.userService.changeUser(this.user));
+      .then(() => {
+        this.userService.changeUser(this.user);
+        console.log(this.user);
+      });
   }
 
   ngOnInit() {
