@@ -25,6 +25,7 @@ export class NewsContentContainerComponent implements OnInit {
   ngOnInit() {
     this.summary.sourceId = this.content.id;
     this.summary.title = this.content.webTitle;
+    this.summary.category = this.content.pillarId;
   }
 
   toggleState() {

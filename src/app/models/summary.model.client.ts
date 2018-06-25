@@ -4,4 +4,5 @@ export class Summary {
   imgSrc: String;
   description: String;
   stype: String;
+  category: String;
 }
