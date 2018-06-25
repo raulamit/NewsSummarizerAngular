@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.snackBar.open('Invalid Credentials',
             'dismiss',
-            {duration: 2000});
+            {duration: 3000});
           this.username = '';
           this.password = '';
           }
