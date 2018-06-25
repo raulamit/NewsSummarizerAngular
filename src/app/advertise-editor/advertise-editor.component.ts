@@ -22,7 +22,7 @@ export class AdvertiseEditorComponent implements OnInit {
     this.advertisement.description = 'When it comes to building real world applications that can scale there are a lot of ' +
       'different moving parts. You could manage all of these individual parts on your own or you can leverage tools that will ' +
       'help do this for you. ';
-    this.advertisement.videoLink = 'https://www.w3schools.com/html/mov_bbb.mp4';
+    this.advertisement.videoLink = 'https://player.vimeo.com/external/241439758.hd.mp4?s=85589fa941c4e7ecd79df274627b516056526f12&profile_id=174';
     this.advertisement.website = 'https://therealdanvega.com/jhipster';
     this.advertisement.company = 'SpringAngularIO';
   }
