@@ -6,13 +6,13 @@
     <div class="pull-left meta">
       <div class="title h5">
         <a ng-href="#"><b>Anonymous User</b></a>
-        <span *ngFor=" let num of [1,2,3,4,5]" class="fa fa-star" [ngClass]="{'checked' : num<=rating}"></span>
+        <ngb-rating [rate]="review.stars"></ngb-rating>
       </div>
       <h6 class="text-muted time">1 minute ago</h6>
     </div>
   </div>
   <div class="post-description">
-    <p>{{review}}</p>
+    <p>{{review.reviewText}}</p>
     <div class="stats">
       <a ng-href="#" (click)="thumbsUp()" class="btn btn-default stat-item a">
         <i class="fa fa-thumbs-up icon"></i>2

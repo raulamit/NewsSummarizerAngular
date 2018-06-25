@@ -21,8 +21,28 @@
   <div *ngIf="summary.stype==='news'" class="carousel-item card col-md-4 active">
     <h1>Comments</h1>
     <div class="card-body">
-      <app-review *ngFor="let rev of summary.reviews" review = {{rev}}></app-review>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="container-full">
+        <label>Rating:</label>
+        <ngb-rating [(rate)]="stars"></ngb-rating>
+        <textarea class="btn-block" [(ngModel)]="reviewText" rows="3"></textarea>
+        <button
+          *ngIf="user&&user.role&&user.role===reader"
+          type="button"
+          (click)="addComment()"
+          class="btn btn-primary btn-block">Add Review
+        </button>
+        <button
+          disabled
+          *ngIf="!user||!user.role||user.role!==reader"
+          type="button"
+          class="btn btn-primary btn-block">Login as Reader to review
+        </button>
+        <br/>
+      </div>
+      <app-review *ngFor="let rev of summary.reviews" [review]="rev"></app-review>
+      <p class="card-text">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </p>
     </div>
   </div>
 </div>

@@ -25,6 +25,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.component';
 import { AdvertisementCardComponent } from './advertisement-card/advertisement-card.component';
 import {AdvertisementServiceClient} from './services/advertisement.service.client';
+import {CommentServiceClient} from './services/comment.service.client';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {AdvertisementServiceClient} from './services/advertisement.service.clien
     GaurdianNewsServiceClient,
     UserServiceClient,
     SummaryServiceClient,
-    AdvertisementServiceClient
+    AdvertisementServiceClient,
+    CommentServiceClient
   ],
   bootstrap: [AppComponent]
 })

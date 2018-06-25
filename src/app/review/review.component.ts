@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-review',
@@ -7,9 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private config: NgbRatingConfig) {
+    config.max = 5;
+  }
   @Input() review;
-  rating = 3;
+  // rating = 3;
   ngOnInit() {
   }
 
