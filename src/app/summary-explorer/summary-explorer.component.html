@@ -2,7 +2,7 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner row w-100 mx-auto">
 
-      <app-news-card *ngIf="currentSummaryIndex >= 0" [summ]="summaries[currentSummaryIndex]"></app-news-card>
+      <app-news-card *ngIf="currentSummaryIndex >= 0 && summaries.length>0" [summary]="summaries[currentSummaryIndex]"></app-news-card>
       <div *ngIf="currentSummaryIndex<0">
         <h1>Loading your daily news...</h1>
       </div>
