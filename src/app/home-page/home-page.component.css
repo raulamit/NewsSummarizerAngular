@@ -14,7 +14,8 @@
 .myContent {
   position: absolute;
   top: 35vh;
-  width:100%;
+  width:70%;
+  left:15%;
 }
 .mybtn-block {
   /*width: 300px;*/
