@@ -59,6 +59,40 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  getAllEditors() {
+    return fetch(this.URL + '/api/editors',
+      {
+        credentials: 'include', // include, same-origin, *omit
+      })
+      .then(response => response.json());
+  }
+
+  followEditor(editor) {
+    return fetch( this.URL + '/api/followeditor',
+      {
+        body: JSON.stringify(editor),
+        method: 'put',
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => response.json());
+  }
+
+  unfollowEditor(editor) {
+    return fetch( this.URL + '/api/unfolloweditor',
+      {
+        body: JSON.stringify(editor),
+        method: 'put',
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => response.json());
+  }
+
   updateUser(user) {
     return fetch(this.URL + '/api/user/' + user.id,
       {

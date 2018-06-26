@@ -7,6 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {SummaryEditorComponent} from './summary-editor/summary-editor.component';
 import {AdminComponent} from './admin/admin.component';
 import {AdvertiseEditorComponent} from './advertise-editor/advertise-editor.component';
+import {FavouritesComponent} from './favourites/favourites.component';
 
 
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'summarize', component: SummaryEditorComponent},
   {path: 'advertiser', component: AdvertiseEditorComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'favourites', component: FavouritesComponent},
   {path: '**', component: HomePageComponent}
 
 ];

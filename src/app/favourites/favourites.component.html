@@ -1,0 +1,22 @@
+<p>Our Editors</p>
+<div>
+    <ul class="list-group">
+      <li *ngFor="let editor of editors"
+          class="list-group-item">
+        {{editor.firstName}}
+        <button class="btn btn-outline-dark float-right"
+                *ngIf="!find(editor.id)"
+                (click)="followEditor(editor)">
+          Follow
+        </button>
+        <button class="btn btn-outline-dark float-right"
+                *ngIf="find(editor.id)"
+                (click)="unfollowEditor(editor)">
+          UnFollow
+        </button>
+      </li>
+
+    </ul>
+
+</div>
+

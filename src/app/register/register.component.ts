@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import {READER} from '../constants';
 
 @Component({
   selector: 'app-register',
@@ -12,25 +13,26 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router,
               private userService: UserServiceClient,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) {
+  }
 
   username;
   password1;
   password2;
   role;
 
-  reset(){
+  reset() {
     this.username = '';
     this.password1 = '';
     this.password2 = '';
-    this.role = 'Reader';
+    this.role = READER;
 
   }
 
   register(username, password1, password2, role) {
     if (password1 === password2) {
       this.userService.register(username, password1, role)
-        .then(user =>  {
+        .then(user => {
           if (user.username !== username) {
             this.snackBar.open('User already exists. ',
               'dismiss',

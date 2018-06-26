@@ -79,6 +79,11 @@
            aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Advertiser'">
           <b> Ad Editor</b> <span class="caret"></span>
         </a>
+        <a class="nav-link mr-sm-2" routerLink="/favourites"
+           role="button"
+           aria-haspopup="true" aria-expanded="false" *ngIf="user.role === 'Reader'">
+          <b> Favourites</b> <span class="caret"></span>
+        </a>
       </li>
 
       <li *ngIf="user"
