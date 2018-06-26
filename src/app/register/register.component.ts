@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
     this.password1 = '';
     this.password2 = '';
     this.role = 'Reader';
+
   }
 
   register(username, password1, password2, role) {
