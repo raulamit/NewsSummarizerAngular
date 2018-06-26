@@ -26,6 +26,7 @@ import { AdvertiseEditorComponent } from './advertise-editor/advertise-editor.co
 import { AdvertisementCardComponent } from './advertisement-card/advertisement-card.component';
 import {AdvertisementServiceClient} from './services/advertisement.service.client';
 import {CommentServiceClient} from './services/comment.service.client';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {CommentServiceClient} from './services/comment.service.client';
     RegisterComponent,
     AdminComponent,
     AdvertiseEditorComponent,
-    AdvertisementCardComponent
+    AdvertisementCardComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
