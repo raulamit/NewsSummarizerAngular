@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
+import {ADMIN, EDITOR} from '../constants';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +12,17 @@ import {User} from '../models/user.model.client';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private service: UserServiceClient) { }
+  constructor(private service: UserServiceClient,
+              private router: Router,
+              private snackBar: MatSnackBar) {
+    this.service.currentUser.subscribe(user => this.user = user);
+  }
 
   users: User[] = [];
   selectedUser: User;
   newUser: User = new User();
   editMode = false;
+  user;
 
   editUser(user: User) {
     this.editMode = true;
@@ -57,9 +65,16 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.user || !this.user.role || this.user.role !== ADMIN) {
+      this.router.navigate(['home']);
+      this.snackBar.open('You need to Login as Admin',
+        'Will Do!',
+        {duration: 2000});
+    } else {
     this.resetUser();
     this.findAllUsers();
     this.selectedUser = this.newUser;
+    }
   }
 
 }
